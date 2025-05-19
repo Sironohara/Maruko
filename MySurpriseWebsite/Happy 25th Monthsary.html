@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Monthsary 💖</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #ffc0cb;
+      font-family: Arial, sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      color: #ff1493;
+      font-family: 'Pacifico', cursive;
+    }
+
+    nav {
+      text-align: center;
+      background-color: #ffb6c1;
+      padding: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      margin: 0 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #ff69b4;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ff1493;
+    }
+
+    .letter {
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px pink;
+      font-family: 'Pacifico', cursive;
+      color: #ff1493;
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    .popup-box {
+      background: white;
+      border: 3px solid #ff69b4;
+      padding: 25px 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 0 20px #ff69b4;
+      font-family: 'Pacifico', cursive;
+      color: #ff1493;
+      font-size: 1.5em;
+      max-width: 90vw;
+      margin: auto;
+    }
+
+    .popup-box button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 1em;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff1493;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-box button:hover {
+      background-color: #ff1493;
+    }
+
+    #popup {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 192, 203, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <img src="images/heart7.png" alt="Loading..." />
+  </div> 
+
+  <canvas id="sparkle-canvas"></canvas>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="Happy 25th Monthsary.html">Mwhh</a> |
+    <a href="memories.html">Memories</a> |
+    <a href="about.html">About</a> |
+    <a href="special.html">Special</a> |
+    <a href="kuromi.html">Kuromi</a> |
+  </nav>
+
+  <h1>Happy Monthsary, My Love 💖</h1>
+
+  <div class="letter">
+    <h2 class="typing-text">Happy 25th Monthsary, My Love 💖</h2>
+    <p class="typing-paragraph">
+      Happy 25th monthsary Pratiksah Thapa Magar 
+    </p>
+    <p class="typing-paragraph">
+      Wah finally reached 25th monthsary this time didnt know what to do so finally tried doing this, I dont even know if ill be able to finish it in time but lets see.
+    </p>
+    <p class="typing-paragraph">
+      Thank you for everything, thank you for always loving me and taking care of me, I really appreciate the things u do for me. I don’t know where I’d be without u man even tho we fight a lot, I really love u a lot man.
+    </p>
+    <p class="typing-paragraph">
+      Hopefully everything will be fine and will always get to be with u, I love you more than words can ever say. Happy 25th monthsary, baby. 💕
+    </p>
+  </div>
+
+  <div class="falling-hearts-page7"></div>
+  <img src="images/kuromi.png" alt="Kuromi" class="kuromi-sticker" />
+
+  <canvas id="sparkle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></canvas>
+
+  <script>
+    const canvas = document.getElementById("sparkle-canvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const sparkles = [];
+    for (let i = 0; i < 200; i++) {
+      sparkles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 3 + 1.5, // bigger sparkles
+        opacity: Math.random() * 0.8 + 0.2, // more visible
+        speed: Math.random() * 0.5 + 0.3
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.shadowColor = "#ffffff"; // glow color
+      ctx.shadowBlur = 10; // glow strength
+
+      sparkles.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${s.opacity})`;
+        ctx.fill();
+        s.opacity += s.speed * 0.02;
+        if (s.opacity >= 1 || s.opacity <= 0) s.speed *= -1;
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+  <script>
+    window.onload = function() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+  <!-- 💖 Popup Message -->
+  <div id="popup">
+    <div class="popup-box">
+      <p>Happy 25th Monthsary, my love 💖</p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </div>
+
+</body>
+</html>
