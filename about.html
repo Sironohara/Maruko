@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>About My Pretty Baby 💖</title>
+
+  <!-- Favicon (optional, if you added one) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Cute Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="loader">
+    <img src="images/heart2.png" alt="Loading..." />
+  </div>
+  <canvas id="sparkle-canvas"></canvas>
+  <!-- 🌸 Navbar -->
+  <nav>
+  <a href="index.html">Home</a> |
+  <a href="gallery.html">Gallery</a> |
+  <a href="Happy 25th Monthsary.html">Mwhh</a> |
+  <a href="memories.html">Memories</a> |
+  <a href="about.html">About</a> |
+  <a href="special.html">Special</a> |
+  <a href="kuromi.html">Kuromi</a> |
+  </nav>
+
+  <!-- 💖 About Section -->
+  <div class="container">
+    <h1 class="bounce">About My Pretty Baby 💖</h1>
+    
+    <p>
+      This little website is a my first proper gift for you, my love 💕<br>
+      We’ve been through so many stuffs good bad memories, and funny and cringe stuffs as well ahah.<br>
+      Every page here is a piece of how special you are to me. 🥺<br>
+      I made this just for you. You deserve all the love and cuteness in the world 💘
+    </p>
+
+    <img src="images/kuromi2.png" alt="Kuromi" class="kuromi-wiggle" style="width:120px; margin: 20px auto; display: block;" />
+
+    <h2 style="text-align:center;">🌸 Fun Little Things</h2>
+    <ul>
+      <li>We started dating on April 20, 2023 💘</li>
+      <li>My BBs voice is my favorite sound 🥰</li>
+      <li>You love Kuromi. I love you 😈💖</li>
+      <li>You're the cutest person I've ever known 💞</li>
+      <li>I’m always proud of you, always 💫</li>
+    </ul>
+  </div>
+<div class="falling-hearts-page2"></div>
+<img src="images/kuromi.png" alt="Kuromi" class="kuromi-sticker">
+<canvas id="sparkle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></canvas>
+
+<script>
+const canvas = document.getElementById("sparkle-canvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const sparkles = [];
+for (let i = 0; i < 200; i++) {
+  sparkles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 3 + 1.5, // bigger sparkles
+    opacity: Math.random() * 0.8 + 0.2, // more visible
+    speed: Math.random() * 0.5 + 0.3
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.shadowColor = "#ffffff"; // glow color
+  ctx.shadowBlur = 10; // glow strength
+
+  sparkles.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${s.opacity})`;
+    ctx.fill();
+    s.opacity += s.speed * 0.02;
+    if (s.opacity >= 1 || s.opacity <= 0) s.speed *= -1;
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
